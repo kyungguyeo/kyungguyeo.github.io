@@ -1,5 +1,5 @@
-var w = 500,
-    h = 500;
+var w = 400,
+    h = 400;
 
 var colorscale = d3.scale.category10();
 
@@ -46,7 +46,7 @@ RadarChart.draw("#chart", d, mycfg);
 var svg = d3.select('#body')
     .selectAll('svg')
     .append('svg')
-    .attr("width", w+300)
+    .attr("width", w+100)
     .attr("height", h)
 
 //Create the title for the legend
@@ -57,13 +57,13 @@ var text = svg.append("text")
     .attr("y", 10)
     .attr("font-size", "12px")
     .attr("fill", "#404040")
-    .text("What % of owners use a specific service in a week");
+    .text("Diseases");
         
 //Initiate Legend   
 var legend = svg.append("g")
     .attr("class", "legend")
-    .attr("height", 100)
-    .attr("width", 200)
+    .attr("height", 50)
+    .attr("width", 100)
     .attr('transform', 'translate(90,20)') 
     ;
     //Create colour squares
@@ -84,7 +84,7 @@ var legend = svg.append("g")
       .append("text")
       .attr("x", w - 52)
       .attr("y", function(d, i){ return i * 20 + 9;})
-      .attr("font-size", "11px")
+      .attr("font-size", "8px")
       .attr("fill", "#737373")
       .text(function(d) { return d; })
       ; 
