@@ -38,7 +38,6 @@ var mycfg = {
 //Call function to draw the Radar chart
 //Will expect that data is in %'s
 RadarChart.draw("#chart", d, mycfg);
-console.log('drowing something');
 
 ////////////////////////////////////////////
 /////////// Initiate legend ////////////////
@@ -53,19 +52,19 @@ var svg = d3.select('#body')
 //Create the title for the legend
 var text = svg.append("text")
     .attr("class", "title")
-    .attr('transform', 'translate(90,0)')
+    .attr('transform', 'translate(90,0)') 
     .attr("x", w - 70)
     .attr("y", 10)
     .attr("font-size", "12px")
     .attr("fill", "#404040")
     .text("Diseases");
-
-//Initiate Legend
+        
+//Initiate Legend   
 var legend = svg.append("g")
     .attr("class", "legend")
     .attr("height", 50)
     .attr("width", 100)
-    .attr('transform', 'translate(90,20)')
+    .attr('transform', 'translate(90,20)') 
     ;
     //Create colour squares
     legend.selectAll('rect')
@@ -88,4 +87,4 @@ var legend = svg.append("g")
       .attr("font-size", "8px")
       .attr("fill", "#737373")
       .text(function(d) { return d; })
-      ;
+      ; 

@@ -1,8 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>The Social Determinants of Health</title>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>MIDS W210 - Social Determinants of Health | Home</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+      integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+      crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script src="RadarChart/RadarChart.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
@@ -10,127 +33,335 @@
       crossorigin=""/>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="css/marketing.css">
-    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
-      integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
-      crossorigin=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <script src="RadarChart/RadarChart.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms",
+                options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Run this code when the viz has finished loading.");
+                    }
+                };
 
-  <body>
-      <div class="header" id="sdoh">
-      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-          <a class="pure-menu-heading" href="">W210 Capstone Project</a>
+            // Create a viz object and embed it in the container div.
+            var viz = new tableau.Viz(containerDiv, url, options);
+        }
+    </script>
+</head>
 
-          <ul class="pure-menu-list">
-              <li class="pure-menu-item"><a href="#sdoh" class="pure-menu-link">SDOH</a></li>
-              <li class="pure-menu-item"><a href="#info" class="pure-menu-link">Info</a></li>
-              <li class="pure-menu-item"><a href="#research" class="pure-menu-link">The Research</a></li>
-              <li class="pure-menu-item"><a href="#problem" class="pure-menu-link">The Problem</a></li>
-              <li class="pure-menu-item"><a href="#solution" class="pure-menu-link">The Solution</a></li>
-              <li class="pure-menu-item"><a href="#outcome" class="pure-menu-link">The Outcome</a></li>
-              <li class="pure-menu-item"><a href="#kudos" class="pure-menu-link">Kudos</a></li>
-          </ul>
-      </div>
-  </div>
-
-  <div class="splash-container" id="sdoh">
-      <div class="splash">
-        <h1 class="splash-head">400% of Clinical Care</h1>
-        <p class="splash-subhead">
-          Social and economic factors drive population health 4 times as much as clinical care.
-        </p>
-        <div id="pieChart"></div>
+<body onload="initViz();">
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="mosh-preloader"></div>
     </div>
-  </div>
 
-  <div class="content-wrapper">
-      <div class="content" id="info">
-          <h2 class="content-head is-center">Social Determinants of Health</h2>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area clearfix">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <!-- Menu Area Start -->
+                <div class="col-12 h-100">
+                    <div class="menu_area h-100">
+                        <nav class="navbar h-100 navbar-expand-lg align-items-center">
+                            <!-- Logo -->
+                            <!-- <a class="navbar-brand" href="index.html"><img src="img/core-img/logo.png" alt="logo"></a> -->
 
-          <div class="pure-g">
-              <div class="l-box pure-u-1-2 pure-u-md-1-4 pure-u-lg-1-8">
-                  <h3 class="content-subhead">
-                    "The conditions in the environment in which people are born, live, learn, work, play, worship, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks.""
-                  </h3>
-                  <p>
-                    Studies have shown that social determinants of health have a significant impact on population health, far more than clinical care or even health behaviors. Social determinants of health are broadly defined, and include:
-                  </p>
-                  <ul>
-                    <li>Economic Stability</li>
-                    <li>Neighboring and Physical Environment</li>
-                    <li>Education</li>
-                    <li>Food</li>
-                    <li>Community and Social Context</li>
-                    <li>Health Care System</li>
-                  </ul>
-              </div>
-              <div class="l-box pure-u-1-2 pure-u-md-1-4 pure-u-lg-1-8">
-                <img src="images/sdoh_piechart.png">
-              </div>
-          </div>
-      </div>
+                            <!-- Menu Area -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-      <div class="content" id="research">
-          <h2 class="content-head is-center">Research</h2>
-          <div class="pure-g">
-              <div class="l-box-lrg pure-u-1-2 pure-u-md-1-4">
-                  <a href="https://www.healthypeople.gov/2020/topics-objectives/topic/social-determinants-of-health"><img src="images/hp2020logo.jpg" height="300px" width="550px"></a>
-              </div>
-              <div class="l-box-lrg pure-u-1-2 pure-u-md-1-4">
-                  This is quickly becoming a big area of research in the health world, and many big organizations are aligning themselves to try to pour in more of their efforts towards SDOH. HealthyPeople is a large-scale decade-long effort to track national progress against specific health goals, and a focus on SDOH is now one of the new objectives for 2020.
-              </div>
-              <div class="l-box-lrg pure-u-1 pure-u-md-1">
-                  Many health organizations - the CDC, WHO, and even individual hospitals - are now mobilizing efforts to drive better health outcomes by improving the nation’s SDOH. Much research has been done now to confirm the effects of different social circumstances on health.
-              </div>
-              <div class="l-box-lrg pure-u-1-3 pure-u-md-1-3">
-                  <a href="https://www.cdc.gov/socialdeterminants/research/index.htm"><img src="images/CDC-logo.jpg" height="300px" width="450px"></a>
-              </div>
-              <div class="l-box-lrg pure-u-1-3 pure-u-md-1-3">
-                  <a href="http://www.who.int/social_determinants/en/"><img src="images/who_logo.jpg" height="400px" width="400px"></a>
-              </div>
-              <div class="l-box-lrg pure-u-1-3 pure-u-md-1-3">
-                  <a href="https://www2.deloitte.com/us/en/pages/life-sciences-and-health-care/articles/addressing-social-determinants-of-health-hospitals-survey.html"><img src="images/hospital.png" height="300px" width="300px"></a>
-              </div>
-          </div>
-      </div>
-
-      <div class="ribbon l-box-lrg pure-g" id="problem">
-          <div class="pure-u-1-2 pure-u-md-1-2 pure-u-lg-3-5">
-              <h2 class="content-head content-head-ribbon">The Problem</h2>
-              <p>The problem is it's hard to identify at-risk "social" patients.</p>
-              <p>While it is good that we have all of these groups recognizing the concerns surround SDOH, there haven’t been that much done to help address the issues today. There are many today who suffer from this condition, and suffer silently, not knowing that they can get treatment, or not knowing even that they should be getting preventive treatment for their situation.</p>
-          </div>
-          <div class="pure-u-1-2 pure-u-md-1-2 pure-u-lg-2-5">
-              <img src="images/the_problem.png" height="300px" width="550px">
-          </div>
-      </div>
-
-      <div class="content" id="solution">
-          <h2 class="content-head is-center">Enter: the Homing Tweeter.</h2>
-          <div class="pure-g">
-              <div class="l-box-lrg pure-u-1-3 pure-u-md-1-3">
-                <img src="images/Twitter-icon.png" height="300px" width="300px">
-              </div>
-              <div class="l-box-lrg pure-u-2-3 pure-u-md-2-3">
-                <div class="panel panel-primary">
-                  <div class="panel-heading">The Homing Tweeter</div>
-                  <div class="panel-body">Utilize Tweepy to pull twitter user profiles and tweets who self-label themselves</div>
-                  <div class="panel-footer">Create a model that can predict a user’s SDOH “riskiness”</div>
-                  <div class="panel-body">Visualize the user’s SDOH scores with potential medical conditions</div>
-                  <div class="panel-footer">Aggregate the data</div>
-                  <div class="panel-body">Compare against body of research</div>
+                            <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
+                                <ul class="navbar-nav animated" id="nav">
+                                    <li class="nav-item active"><a class="nav-link" href="index.html">MIDS W210 - Social Determinants of Health</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                </ul>
+                                <!-- Search Form Area Start -->
+                                <div class="search-form-area animated">
+                                    <form action="#" method="post">
+                                        <input type="search" name="search" id="search" placeholder="Type keywords &amp; hit enter">
+                                        <button type="submit" class="d-none"><img src="img/core-img/search-icon.png" alt="Search"></button>
+                                    </form>
+                                </div>
+                                <!-- Search btn -->
+                                <div class="search-button">
+                                    <a href="#" id="search-btn"><img src="img/core-img/search-icon.png" alt="Search"></a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <section>
+      <div class="intro">
+          <div class="row">
+              <div class="col-12">
+                  <div class="sec gtion-heading text-center">
+                      <h1>Social Determinants of Health (SDOH)</h1>
+                      <p>Gaining insights of health from Twitter data</p>
+                  </div>
               </div>
           </div>
       </div>
+    </section>
+    <section class="welcome_area clearfix" id="home" style="background-image: url(img/bg-img/welcome-bg.png)">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slides -->
+            <div class="single-hero-slide d-flex align-items-end justify-content-center">
+                <div class="hero-slide-content text-center">
+                    <h2>SDOH - Economic Stability</h2>
+                    <img class="slide-img" src="img/bg-img/money.jpg" alt="">
+                </div>
+            </div>
+            <!-- Single Hero Slides -->
+            <div class="single-hero-slide d-flex align-items-end justify-content-center">
+                <div class="hero-slide-content text-center">
+                    <h2>SDOH - Education</h2>
+                    <img class="slide-img" src="img/bg-img/education.jpg" alt="">
+                </div>
+            </div>
+            <div class="single-hero-slide d-flex align-items-end justify-content-center">
+                <div class="hero-slide-content text-center">
+                    <h2>SDOH - Food Security</h2>
+                    <img class="slide-img" src="img/bg-img/food.png" alt="">
+                </div>
+            </div>
+            <div class="single-hero-slide d-flex align-items-end justify-content-center">
+                <div class="hero-slide-content text-center">
+                    <h2>SDOH - Housing Security</h2>
+                    <img class="slide-img" src="img/bg-img/housing.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Welcome Area End ***** -->
+    <section class="mosh-clients-area section_padding_100 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h1>Social Determinants of Health</h1>
+                        <h2>"The conditions in the environment in which people are born, live, learn, work, play, worship, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks."</h2>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="clients-logo-area d-sm-flex align-items-center justify-content-between">
+                        <a href="#"><img src="img/bg-img/money.jpg" alt=""></a>
+                        <a href="#"><img src="img/bg-img/education.jpg" alt=""></a>
+                        <a href="#"><img src="img/bg-img/food.png" alt=""></a>
+                        <a href="#"><img src="img/bg-img/housing.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mosh-features-area section_padding_100 clearfix">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-12 col-md-6">
+                    <div class="section-heading">
+                        <p>Social Determinants of Health (SDOH)</p>
+                        <h2>SDOH drive health 4X as much as clinical care</h2>
+                        <img class="slide-img" src="img/bg-img/sdoh_piechart.jpg" alt="">
+                    </div>
+                    <div class="features-content">
+                        <p>"The conditions in the environment in which people are born, live, learn, work, play, worship, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks."</p>
+                        <!-- Progress Bar Content Area -->
+                        <div class="features-progress-bar mt-60">
+                            <!-- Single Progress Bar -->
+                            <div class="single_progress_bar mb-15 wow fadeInUp" data-wow-delay="0.2s">
+                                <p>Clinical Care</p>
+                                <div id="bar1" class="barfiller">
+                                    <span class="fill" data-percentage="10" style="background: rgb(74, 122, 236); width: 99px; transition: width 1s ease-in-out;"></span>
+                                </div>
+                            </div>
+                            <!-- Single Progress Bar -->
+                            <div class="single_progress_bar mb-15 wow fadeInUp" data-wow-delay="0.4s">
+                                <p>Physical Environment</p>
+                                <div id="bar2" class="barfiller">
+                                    <span class="fill" data-percentage="10" style="background: rgb(74, 122, 236); width: 99px; transition: width 1s ease-in-out;"></span>
+                                </div>
+                            </div>
+                            <!-- Single Progress Bar -->
+                            <div class="single_progress_bar mb-15 wow fadeInUp" data-wow-delay="0.6s">
+                                <p>Social and Economical Factors</p>
+                                <div id="bar3" class="barfiller">
+                                    <span class="fill" data-percentage="40" style="background: rgb(74, 122, 236); width: 99px; transition: width 1s ease-in-out;"></span>
+                                </div>
+                            </div>
+                            <!-- Single Progress Bar -->
+                            <div class="single_progress_bar mb-15 wow fadeInUp" data-wow-delay="0.8s">
+                                <p>Health Behaviors</p>
+                                <div id="bar4" class="barfiller">
+                                    <span class="fill" data-percentage="30" style="background: rgb(74, 122, 236); width: 99px; transition: width 1s ease-in-out;"></span>
+                                </div>
+                            </div>
+                            <!-- Single Progress Bar -->
+                            <div class="single_progress_bar mb-15 wow fadeInUp" data-wow-delay="0.9s">
+                                <p>Genes & Biology</p>
+                                <div id="bar6" class="barfiller">
+                                    <div class="tipWrap">
+                                        <span class="tip"></span>
+                                    </div>
+                                    <span class="fill" data-percentage="10" style="background: rgb(74, 122, 236); width: 99px; transition: width 1s ease-in-out;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature Thumb -->
+        <div class="features-img">
+            <img src="img/bg-img/sdoh_piechart.png" alt="">
+        </div>
+    </section>
 
+    <!-- ***** Clients Area Start ***** -->
+    <section class="mosh-clients-area section_padding_100 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h1>Research</h1>
+                        <h2>This is quickly becoming a big area of research in the health world, and many big organizations are aligning themselves to try to pour in more of their efforts towards SDOH.</h2>
+                        <p>For example, HealthyPeople is a large-scale decade-long effort to track national progress against specific health goals, and a focus on SDOH is now one of the new objectives for 2020.</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="clients-logo-area d-sm-flex align-items-center justify-content-between">
+                        <a href="#"><img src="img/clients-img/hp2020logo.jpg" alt=""></a>
+                        <a href="#"><img src="img/clients-img/cdc-logo.jpg" alt=""></a>
+                        <a href="#"><img src="img/clients-img/who_logo.jpg" alt=""></a>
+                        <a href="#"><img src="img/clients-img/hospital.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Clients Area End ***** -->
+    <section class="mosh-features-area section_padding_100 clearfix">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-12 col-md-6">
+                    <div class="section-heading">
+                        <p>The Problem</p>
+                        <h2>It's hard to identify at-risk "social" patients the traditional way</h2>
+                        <img class="slide-img" src="img/bg-img/sdoh_piechart.jpg" alt="">
+                    </div>
+                    <div class="features-content">
+                        <p>While it is good that we have all of these groups recognizing the concerns surround SDOH, there haven’t been that much done to help address the issues today. There are many today who suffer from this condition, and suffer silently, not knowing that they can get treatment, or not knowing even that they should be getting preventive treatment for their situation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature Thumb -->
+        <div class="features-img">
+            <img src="img/bg-img/the_problem.png" alt="">
+        </div>
+    </section>
+    <!-- ***** Workflow Area Start ***** -->
+    <section class="mosh-workflow-area section_padding_100_0 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center mb-0">
+                        <p>Our Solution</p>
+                        <h2>This is how we work on Projects</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-img">
+            <img src="img/core-img/work-progress.png" alt="">
+        </div>
+
+        <div class="workflow-slides-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mosh-workflow-slides owl-carousel">
+                            <!-- Single Service Area -->
+                            <div class="single-workflow-area d-flex">
+                                <h2>1.</h2>
+                                <div class="workflow-content ml-15">
+                                    <h4>Identify SDOH at-risk users</h4>
+                                    <p>through self-idenfication with tweets</p>
+                                </div>
+                            </div>
+                            <!-- Single Service Area -->
+                            <div class="single-workflow-area d-flex">
+                                <h2>2.</h2>
+                                <div class="workflow-content ml-15">
+                                    <h4>Train prediction models for each SDOH factor</h4>
+                                    <p>Given a user and tweet history, our model will give a risk score for each SDOH factor</p>
+                                </div>
+                            </div>
+                            <!-- Single Service Area -->
+                            <div class="single-workflow-area d-flex">
+                                <h2>3.</h2>
+                                <div class="workflow-content ml-15">
+                                    <h4>Identify target population</h4>
+                                    <p>To validate our predictions, we found users who self-identified to have one of the target diseases, and ran our models on their data.</p>
+                                </div>
+                            </div>
+                            <!-- Single Service Area -->
+                            <div class="single-workflow-area d-flex">
+                                <h2>4.</h2>
+                                <div class="workflow-content ml-15">
+                                    <h4>Compare against body of research</h4>
+                                    <p>With the scores and disease demographic information, we generate insights such as correlation between SDOH risk score and likelyhood of having a given disease, and validate with existing researches.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Service Area End ***** -->
+    <!-- ***** Service Area Start ***** -->
+    <section class="mosh-more-services-area d-sm-flex clearfix">
+        <div class="single-more-service-area">
+            <div class="more-service-content text-center wow fadeInUp" data-wow-delay=".1s">
+                <img src="img/core-img/trophy.png" alt="">
+                <h4>Identiy SDOH at-risk pupolation</h4>
+                <p>Twitter API Search to get self-identified at-risk Twitter user data</p>
+            </div>
+        </div>
+        <div class="single-more-service-area">
+            <div class="more-service-content text-center wow fadeInUp" data-wow-delay=".4s">
+                <img src="img/core-img/edit.png" alt="">
+                <h4>Model Training</h4>
+                <p>NeuronNet + Logistic Regression Model for predicting SDOH risk score</p>
+            </div>
+        </div>
+        <div class="single-more-service-area">
+            <div class="more-service-content text-center wow fadeInUp" data-wow-delay=".7s">
+                <img src="img/core-img/video-camera.png" alt="">
+                <h4>Identify disease population</h4>
+                <p>Twitter API Search to get self-identified Twitter user with diseases</p>
+            </div>
+        </div>
+        <div class="single-more-service-area">
+            <div class="more-service-content text-center wow fadeInUp" data-wow-delay="1s">
+                <img src="img/core-img/presentation.png" alt="">
+                <h4>Analysis</h4>
+                <p>Visualize the user’s SDOH scores with potential medical conditions.</p>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Service Area End ***** -->
+    <section>
       <div class="ribbon l-box-lrg pure-g">
         <div class="pure-u-1 pure-u-md-1">
-          <h3>Select the city you'd like to view:</h3>
+          <h3 style="position:relative; height: 100px; width: 600px; color: white;">Select the city you'd like to view:</h3>
           <div class="pure-menu pure-menu-horizontal">
               <ul class="pure-menu-list">
                   <li class="pure-menu-item"><a href="#West" class="pure-menu-link">West</a></li>
@@ -139,8 +370,8 @@
                   <li class="pure-menu-item"><a href="#Southeast" class="pure-menu-link">Southeast</a></li>
                   <li class="pure-menu-item"><a href="#Southwest" class="pure-menu-link">Southwest</a></li>
               </ul>
-          </div>    
-        </div>    
+          </div>
+        </div>
         <div class="pure-u-1-2 pure-u-md-1-2 pure-u-lg-3-5">
           <div id="mapid" style="position:relative; height: 400px; width: 600px"></div>
         </div>
@@ -149,7 +380,8 @@
             <div id="chart"></div>
           </div>
         </div>
-        
+
+        <div class="content">
         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
           <p id="summary">For this location we've identified 43 users in our disease dataset. Based on our SDOH models, here are their at-risk scores, by disease:</p>
 
@@ -192,26 +424,110 @@
           </table>
         </div>
     </div>
+  </div>
 
       <div class="content" id="outcome">
           <h2 class="content-head is-center">Outcomes</h2>
           <div class="pure-g">
-              <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                  Blah.
-              </div>
+            <div id="vizContainer" style="width:800px; height:700px;"></div>
           </div>
       </div>
-
-
-      <div class="footer is-center">
-        <div id="kudos" style="color:white">
-            <h4>Contact Us</h4>
-            <p>Made by the W210 team of Marcus, Jingjing, and Johnny.</p>
-            <p>Check out our github: <a href="https://github.com/kyungguyeo/kyungguyeo.github.io" target='_blank'><img src='images/github-512.png' style="width:32px;height:32px;display:block;margin:0 auto"></a></p>
+    </section>
+    <!-- ***** CTA Area Start ***** -->
+    <section class="mosh-call-to-action-area bg-img bg-overlay section_padding_100" style="background-image: url(img/bg-img/cta.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-content text-center wow fadeIn" data-wow-delay="0.5s">
+                        <div class="section-heading">
+                            <p>give us a shout</p>
+                            <h2>Interested in more details?</h2>
+                            <a href="contact.html" class="btn mosh-btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    
+    </section>
+    <!-- ***** CTA Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area clearfix">
+        <!-- Top Fotter Area -->
+        <div class="top-footer-area section_padding_100_0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget mb-100">
+                            <p>Made by the W210 team of Marcus, Jingjing, and Johnny.</p>
+                            <p>Check out our github: <a href="https://github.com/kyungguyeo/kyungguyeo.github.io" target='_blank'><img src='img/bg-img/github-512.png' style="width:32px;height:32px;display:block;margin:0 auto"></a></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget mb-100">
+                            <h5>Contact Info</h5>
+                            <div class="footer-single-contact-info d-flex">
+                                <div class="contact-icon">
+                                    <img src="img/core-img/map.png" alt="">
+                                </div>
+                                <p>PUT SOME ADDRESS HERE, Berkeley, US</p>
+                            </div>
+                            <div class="footer-single-contact-info d-flex">
+                                <div class="contact-icon">
+                                    <img src="img/core-img/call.png" alt="">
+                                </div>
+                                <p>Main: xxx-xxx-xxxx <br> Office: xxx-xxx-xxxx</p>
+                            </div>
+                            <div class="footer-single-contact-info d-flex">
+                                <div class="contact-icon">
+                                    <img src="img/core-img/message.png" alt="">
+                                </div>
+                                <p>rjj@berkeley.edu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fotter Bottom Area -->
+        <div class="footer-bottom-area">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="footer-bottom-content h-100 d-md-flex justify-content-between align-items-center">
+                            <div class="copyright-text">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+                            </div>
+                            <div class="footer-social-info">
+                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
     <script type="text/javascript" src="RadarChart/script.js"></script>
     <script type="text/javascript">
         var mymap = L.map('mapid').setView([41.8781, -87.6298], 13);
@@ -223,6 +539,6 @@
           id: 'mapbox.streets'
       }).addTo(mymap);
     </script>
-  </body>
+</body>
 
 </html>
