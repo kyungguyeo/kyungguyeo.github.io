@@ -33,9 +33,25 @@
       crossorigin=""/>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="css/marketing.css">
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms",
+                options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Run this code when the viz has finished loading.");
+                    }
+                };
+
+            // Create a viz object and embed it in the container div.
+            var viz = new tableau.Viz(containerDiv, url, options);
+        }
+    </script>
 </head>
 
-<body>
+<body onload="initViz();">
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="mosh-preloader"></div>
@@ -413,9 +429,7 @@
       <div class="content" id="outcome">
           <h2 class="content-head is-center">Outcomes</h2>
           <div class="pure-g">
-              <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                  Blah.
-              </div>
+            <div id="vizContainer" style="width:800px; height:700px;"></div>
           </div>
       </div>
     </section>
