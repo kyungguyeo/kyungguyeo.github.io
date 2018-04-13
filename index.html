@@ -37,8 +37,10 @@
     <script type="text/javascript">
         function initViz() {
             var containerDiv = document.getElementById("vizContainer"),
+            var containerDiv2 = document.getElementById("vizDash"),
                 // url = "https://public.tableau.com/views/RegionalSampleWorkbook/Storms",
                 url = "https://public.tableau.com/views/sdoh_analysis/Sheet2?:embed=y&:display_count=yes&publish=yes",
+                url2 = "https://public.tableau.com/views/SDOH_Dash/SDOHDashboard?:embed=y&:display_count=yes&publish=yes",
                 options = {
                     hideTabs: true,
                     onFirstInteractive: function () {
@@ -48,6 +50,7 @@
 
             // Create a viz object and embed it in the container div.
             var viz = new tableau.Viz(containerDiv, url, options);
+            var viz2 = new tableau.Viz(containerDiv2, url2, options);
         }
     </script>
 </head>
@@ -364,6 +367,7 @@
         <div class="pure-u-1 pure-u-md-1">
           <h3 style="position:relative; height: 100px; width: 600px; color: white;">Select the city you'd like to view:</h3>
           <div class="pure-menu pure-menu-horizontal">
+            <div id="vizDash" style="width:800px; height:700px;"></div>
               <ul class="pure-menu-list">
                   <li class="pure-menu-item"><a href="#West" class="pure-menu-link">West</a></li>
                   <li class="pure-menu-item"><a href="#Northeast" class="pure-menu-link">Northeast</a></li>
