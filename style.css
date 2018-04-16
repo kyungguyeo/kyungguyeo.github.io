@@ -695,9 +695,24 @@ img {
     transition-duration: 750ms;
 }
 
-.single-more-service-area:hover {
-    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.1);
+.step {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: white;
 }
+
+.single-more-service-area:hover .step{
+    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+}
+
 
 .more-service-content > img {
     margin-bottom: 40px;
