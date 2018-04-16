@@ -474,7 +474,7 @@ img {
 .welcome_area {
     position: relative;
     z-index: 2;
-    height: 1200px;
+    height: 1000px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -495,7 +495,7 @@ img {
 }
 
 .single-hero-slide {
-    height: 1200px;
+    height: 500px;
     width: 100%;
     position: relative;
     z-index: 1;
@@ -514,11 +514,11 @@ img {
 }
 
 .hero-slide-content .slide-img {
-    width: 300px;
-    height:500px;
+    width: 10px;
+    height:200px;
     color: #fff;
-    margin-top: 100px;
-    font-weight: 400;
+    margin-top: 50px;
+    font-weight: 100;
 }
 
 .hero-slides .owl-prev,

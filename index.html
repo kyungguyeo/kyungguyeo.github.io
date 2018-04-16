@@ -42,8 +42,10 @@
                 url = "https://public.tableau.com/views/sdoh_analysis/Sheet2?:embed=y&:display_count=yes&publish=yes",
                 url2 = "https://public.tableau.com/views/SDOH_Dash/SDOHDashboard?:embed=y&:display_count=yes&publish=yes",
                 options = {
-                    hideTabs: true,
-                    onFirstInteractive: function () {
+                  width: 1500,
+                  height: 1000,
+                  hideTabs: true,
+                  onFirstInteractive: function () {
                         console.log("Run this code when the viz has finished loading.");
                     }
                 };
@@ -51,6 +53,10 @@
             // Create a viz object and embed it in the container div.
             var viz = new tableau.Viz(containerDiv, url, options);
             var viz2 = new tableau.Viz(containerDiv2, url2, options);
+            var sheet = viz2.getWorkbook().getActiveSheet();
+            sheet.changeSizeAsync(
+                {"behavior": "EXACTLY", "maxSize": { "height": 1500, "width": 1500 }})
+                .then(viz.setFrameSize(parseInt(1500, 10), parseInt(1500, 10)));
         }
     </script>
 </head>
@@ -114,53 +120,29 @@
       </div>
     </section>
     <section class="welcome_area clearfix" id="home" style="background-image: url(img/bg-img/welcome-bg.png)">
-        <div class="hero-slides owl-carousel">
-            <!-- Single Hero Slides -->
-            <div class="single-hero-slide d-flex align-items-end justify-content-center">
-                <div class="hero-slide-content text-center">
-                    <h2>SDOH - Economic Stability</h2>
-                    <img class="slide-img" src="img/bg-img/money.jpg" alt="">
-                </div>
-            </div>
-            <!-- Single Hero Slides -->
-            <div class="single-hero-slide d-flex align-items-end justify-content-center">
-                <div class="hero-slide-content text-center">
-                    <h2>SDOH - Education</h2>
-                    <img class="slide-img" src="img/bg-img/education.jpg" alt="">
-                </div>
-            </div>
-            <div class="single-hero-slide d-flex align-items-end justify-content-center">
-                <div class="hero-slide-content text-center">
-                    <h2>SDOH - Food Security</h2>
-                    <img class="slide-img" src="img/bg-img/food.png" alt="">
-                </div>
-            </div>
-            <div class="single-hero-slide d-flex align-items-end justify-content-center">
-                <div class="hero-slide-content text-center">
-                    <h2>SDOH - Housing Security</h2>
-                    <img class="slide-img" src="img/bg-img/housing.png" alt="">
-                </div>
-            </div>
-        </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <div class="section-heading text-center" style="margin-top:100px;">
+                      <h1 style="color:white">What Are Social Determinants of Health ?</h1>
+                      <h4 style="color:white">The conditions in the environment in which people are born, live, learn, work, play, worship, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks."</h4>
+                  </div>
+              </div>
+              <div class="col-12">
+                  <div class="clients-logo-area d-sm-flex align-items-center justify-content-between">
+                      <a href="#"><img src="img/bg-img/money.jpg" alt=""></a>
+                      <a href="#"><img src="img/bg-img/education.jpg" alt=""></a>
+                      <a href="#"><img src="img/bg-img/food.png" alt=""></a>
+                      <a href="#"><img src="img/bg-img/housing.png" alt=""></a>
+                  </div>
+              </div>
+          </div>
+      </div>
     </section>
     <!-- ***** Welcome Area End ***** -->
     <section class="mosh-clients-area section_padding_100 clearfix">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <h1>Social Determinants of Health</h1>
-                        <h2>"The conditions in the environment in which people are born, live, learn, work, play, worship, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks."</h2>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="clients-logo-area d-sm-flex align-items-center justify-content-between">
-                        <a href="#"><img src="img/bg-img/money.jpg" alt=""></a>
-                        <a href="#"><img src="img/bg-img/education.jpg" alt=""></a>
-                        <a href="#"><img src="img/bg-img/food.png" alt=""></a>
-                        <a href="#"><img src="img/bg-img/housing.png" alt=""></a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -286,48 +268,6 @@
             <img src="img/core-img/work-progress.png" alt="">
         </div>
 
-        <div class="workflow-slides-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="mosh-workflow-slides owl-carousel">
-                            <!-- Single Service Area -->
-                            <div class="single-workflow-area d-flex">
-                                <h2>1.</h2>
-                                <div class="workflow-content ml-15">
-                                    <h4>Identify SDOH at-risk users</h4>
-                                    <p>through self-idenfication with tweets</p>
-                                </div>
-                            </div>
-                            <!-- Single Service Area -->
-                            <div class="single-workflow-area d-flex">
-                                <h2>2.</h2>
-                                <div class="workflow-content ml-15">
-                                    <h4>Train prediction models for each SDOH factor</h4>
-                                    <p>Given a user and tweet history, our model will give a risk score for each SDOH factor</p>
-                                </div>
-                            </div>
-                            <!-- Single Service Area -->
-                            <div class="single-workflow-area d-flex">
-                                <h2>3.</h2>
-                                <div class="workflow-content ml-15">
-                                    <h4>Identify target population</h4>
-                                    <p>To validate our predictions, we found users who self-identified to have one of the target diseases, and ran our models on their data.</p>
-                                </div>
-                            </div>
-                            <!-- Single Service Area -->
-                            <div class="single-workflow-area d-flex">
-                                <h2>4.</h2>
-                                <div class="workflow-content ml-15">
-                                    <h4>Compare against body of research</h4>
-                                    <p>With the scores and disease demographic information, we generate insights such as correlation between SDOH risk score and likelyhood of having a given disease, and validate with existing researches.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
     <!-- ***** Service Area End ***** -->
     <!-- ***** Service Area Start ***** -->
@@ -363,11 +303,11 @@
     </section>
     <!-- ***** Service Area End ***** -->
     <section>
-      <div class="ribbon l-box-lrg pure-g">
+      <!-- <div class="ribbon l-box-lrg pure-g">
         <div class="pure-u-1 pure-u-md-1">
-          <h3 style="position:relative; height: 100px; width: 600px; color: white;">Use the map to filter the data:</h3>
-          <div class="pure-menu pure-menu-horizontal">
-            <div id="vizDash" style="width:800px; height:900px;"></div>
+          <h3 style="position:relative; height: 100px; width: 500px; color: white;">Use the map to filter the data:</h3>
+          <div class="pure-g">
+            <div id="vizDash" style="width:1500px; height:1000px;"></div>
           </div>
         </div>
         <div class="pure-u-1-2 pure-u-md-1-2 pure-u-lg-2-5">
@@ -375,12 +315,19 @@
 
         <div class="content">
     </div>
+  </div> -->
+  <div class="ribbon l-box-lrg pure-g">
+    <h2 class="content-head is-center" style="color:white">Use the map to filter the data</h2>
+      <div class="pure-g">
+        <div id="vizDash" style="width:1500px; height:1000px; overflow:auto;"></div>
+        <div id="controls" style="padding:20px;">
+        </div>
+      </div>
   </div>
-
-      <div class="content" id="outcome">
+      <div class="content" id="outcome" style="width:3000px; height:1200px;">
           <h2 class="content-head is-center">Outcomes</h2>
           <div class="pure-g">
-            <div id="vizContainer" style="width:800px; height:700px;"></div>
+            <div id="vizContainer" style="width:2000px; height:1000px;"></div>
           </div>
       </div>
     </section>
