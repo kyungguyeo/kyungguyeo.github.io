@@ -195,7 +195,8 @@
                 <p>In this tool, we demonstrate how SDOH risk scores vary between groups who self-report a chronic disease.</p>
                 <br> </br>
                 <br> </br>
-                <span style="text-decoration: underline;font-size: 20px;">A Note on Bias in Twitter Population.</span>.
+                <br> </br>
+                <span style="text-decoration: underline;font-size: 24px;">A Note on Bias in Twitter Population.</span>.
                 <br> </br>
                 <p>"Social media over-represents certain high-risk groups such as young, urban, and in some cases minority persons. These biases are complementary to the biases in existing survey methods which skew older and less urban."</p>
                 <p> -Dredze, Mark. "Social Monitoring for Public Health." 2017.</p>
@@ -247,8 +248,10 @@
               <h2 style="color:white">Data Collection Process</h2>
               <p style="font-size: 24px;">We used Selenium and the Twitter Advanced Search Tool to collect users who self-reported chronic health conditions and SDOH risk factors in a “marker” tweet.
 With these user handles and tweet IDs, we used the Twitter REST API to collect profile metadata and the preceding 100 tweets on a user’s timeline.
-Data was cleaned in a multi-step process.  The Botometer API removed commercial or automated Twitter accounts.  The Python package Carmen identified US accounts and their approximate location.  A final manual check on the marker tweets verified the subject’s relevance.
-Finally, the Python package Demographer labeled users as male or female, and we used our own deep learning model to predict if a user was over or under 30 years.
+</p>
+              <p style="font-size: 24px;">Data was cleaned in a multi-step process.  The Botometer API removed commercial or automated Twitter accounts.  The Python package Carmen identified US accounts and their approximate location.  A manual check on the marker tweets verified the subject’s relevance.
+</p>
+              <p style="font-size: 24px;">Finally, the Python package Demographer labeled users as male or female, and we used our own deep learning model to predict if a user was over or under 30 years.
 </p>
                     
 <img src="img/flow.png" alt="">
