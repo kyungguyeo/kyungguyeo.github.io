@@ -297,6 +297,10 @@ img {
     margin-bottom: 10px;
 }
 
+.solution {
+  height:300px;
+}
+
 .solution > p {
     font-weight: 500;
     color: #696969	;
@@ -482,7 +486,7 @@ img {
 .welcome_area {
     position: relative;
     z-index: 2;
-    height: 1000px;
+    height: 1200px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
