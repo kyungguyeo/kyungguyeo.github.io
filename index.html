@@ -174,7 +174,7 @@
     </section>
     <!-- ***** Workflow Area Start 
     <section class="mosh-workflow-area section_padding_100_0 clearfix" id="solution">   ***** -->
-    <section class="mosh-workflow-area section_padding_30_0 clearfix" id="solution">
+    <section class="mosh-workflow-area section_padding_30_30 clearfix" id="solution">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -191,17 +191,14 @@
         </div>
         <div class="solution" style="top:-550px; left:350px;position: relative; max-width:1000px">
                 <p>HealthGrader supplements surveys with Twitter users who self-report SDOH.</p>
-                <br> </br>
                 <p>With the profile data of these high and low risk users, we train deep learning models to predict SDOH risk scores.</p>
-                <br> </br>
                 <p>In this tool, we demonstrate how SDOH risk scores vary between groups who self-report a chronic disease.</p>
-                <br> </br>
                 <br> </br>
                 <br> </br>
                 <span style="text-decoration: underline;font-size: 20px;">A Note on Bias in Twitter Population.</span>.
                 <br> </br>
                 <p>"Social media over-represents certain high-risk groups such as young, urban, and in some cases minority persons. These biases are complementary to the biases in existing survey methods which skew older and less urban."</p>
-                <p> -Dredze, Mark. "Social Monitoring for Public Health." 2017</p>
+                <p> -Dredze, Mark. "Social Monitoring for Public Health." 2017.</p>
         </div>
     </section>
 
@@ -253,15 +250,18 @@ With these user handles and tweet IDs, we used the Twitter REST API to collect p
 Data was cleaned in a multi-step process.  The Botometer API removed commercial or automated Twitter accounts.  The Python package Carmen identified US accounts and their approximate location.  A final manual check on the marker tweets verified the subject’s relevance.
 Finally, the Python package Demographer labeled users as male or female, and we used our own deep learning model to predict if a user was over or under 30 years.
 </p>
-                      
+                    
 <img src="img/flow.png" alt="">
           </div>
+            </div>
     </section>
-        
+      
     <section class="welcome_area clearfix" id="home" style="background-image: url(img/bg-img/welcome-bg.png)">
         <div class="container">
           <div class="text-center">
-              <h2 style="color:white">Model Architecture</h2>
+              <h2 style="color:white">Model Architecture</h2>  
+          </div>
+        </div>
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slides -->
             <div class="single-hero-slide d-flex align-items-center  justify-content-center">
