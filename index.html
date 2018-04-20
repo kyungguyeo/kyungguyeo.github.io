@@ -246,12 +246,12 @@
         <div class="container">
           <div class="text-center">
               <h2 style="color:white">Data Collection Process</h2>
-              <p style="font-size: 24px;">We used Selenium and the Twitter Advanced Search Tool to collect users who self-reported chronic health conditions and SDOH risk factors in a “marker” tweet.
+              <p style="font-size: 24px; text-align:left;">We used Selenium and the Twitter Advanced Search Tool to collect users who self-reported chronic health conditions and SDOH risk factors in a “marker” tweet.
 With these user handles and tweet IDs, we used the Twitter REST API to collect profile metadata and the preceding 100 tweets on a user’s timeline.
 </p>
-              <p style="font-size: 24px;">Data was cleaned in a multi-step process.  The Botometer API removed commercial or automated Twitter accounts.  The Python package Carmen identified US accounts and their approximate location.  A manual check on the marker tweets verified the subject’s relevance.
+              <p style="font-size: 24px;text-align:left;">Data was cleaned in a multi-step process.  The Botometer API removed commercial or automated Twitter accounts.  The Python package Carmen identified US accounts and their approximate location.  A manual check on the marker tweets verified the subject’s relevance.
 </p>
-              <p style="font-size: 24px;">Finally, the Python package Demographer labeled users as male or female, and we used our own deep learning model to predict if a user was over or under 30 years.
+              <p style="font-size: 24px;text-align:left;">Finally, the Python package Demographer labeled users as male or female, and we used our own deep learning model to predict if a user was over or under 30 years.
 </p>
                     
 <img src="img/flow.png" alt="">
@@ -303,7 +303,7 @@ With these user handles and tweet IDs, we used the Twitter REST API to collect p
     <!-- ***** Service Area End ***** -->
     <section>
   <div class="mosh-workflow-area section_padding_100_0 clearfix">
-    <h2 class="content-head is-center" style="color:black">Use the map to filter the data</h2>
+    <h2 class="content-head is-center" style="color:black">Visualizing SDOH Risk in Disease Populations</h2>
       <div class="pure-g justify-content-center">
         <div id="vizDash" style="width:1500px; height:1000px; overflow:auto;">centered content</div>
         <div id="controls" style="padding:20px;">
