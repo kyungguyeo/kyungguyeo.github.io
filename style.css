@@ -498,13 +498,13 @@ img {
 }
 
 .hero-slides {
-  height:500px;
+  height:800px;
     position: relative;
     z-index: 1;
 }
 
 .single-hero-slide {
-  height: 1000px;
+  height: 900px;
   width: 100%;
   position: relative;
   z-index: 1;
