@@ -68,7 +68,7 @@
         $(".mosh-team-slides").owlCarousel({
             items: 3,
             loop: true,
-            autoplay: true,
+            autoplay: false,
             smartSpeed: 800,
             margin: 50,
             center: true,
@@ -92,7 +92,7 @@
         $(".testimonials-slides").owlCarousel({
             items: 3,
             loop: true,
-            autoplay: true,
+            autoplay: false,
             smartSpeed: 1500,
             margin: 0,
             center: true,

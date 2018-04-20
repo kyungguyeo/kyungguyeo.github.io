@@ -40,7 +40,7 @@
                 // url = "https://public.tableau.com/views/RegionalSampleWorkbook/Storms",
                 url2 = "https://public.tableau.com/views/SDOH_Dash/SDOHDashboard?:embed=y&:display_count=yes&publish=yes",
                 options = {
-                  width: 1500,
+                  width: 1400,
                   height: 1000,
                   hideTabs: true,
                   onFirstInteractive: function () {
@@ -100,7 +100,7 @@
       <div class="intro">
           <div class="row">
               <div class="col-12">
-                  <div class="sec gtion-heading text-center">
+                  <div class="section-heading text-center" style="height: 1500">
                       <h1 style="font-size: 60px;">HealthGrader</h1>
                       <p style="font-size: 24px">Gaining insights into public health from Twitter based on Social Determinants of Health</p>
                   </div>
@@ -108,7 +108,7 @@
           </div>
       </div>
     </section>
-    <section class="welcome_area clearfix" id="home" style="background-image: url(img/bg-img/welcome-bg.png)">
+    <section class="welcome_area clearfix" id="home" style="height: 700px; background-image: url(img/bg-img/welcome-bg.png)">
       <div class="container">
         <div class="row">
             <div class="col-12">
@@ -129,7 +129,7 @@
               <div class="col-12">
                   <div class="section-heading text-center" style="margin-top:100px;">
                       <h1 style="color:black">What are Social Determinants of Health (SDOH)?</h1>
-                      <h4 style="font-size: 20px; color:black">"The conditions in the environment in which people are born, live, learn, work, play, worship, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks. -HealthyActions"</h4>
+                      <h4 style="font-size: 20px; color:black">"The conditions in the environment in which people are born, live, learn, work, play, worship, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks." -HealthyPeople.gov</h4>
                       <br/>
                       <a href="https://kaiserfamilyfoundation.files.wordpress.com/2015/11/8802-figure-2.png"> <img src="img/sdoh_table.png" alt=""></a>
                   </div>
@@ -302,9 +302,8 @@ With these user handles and tweet IDs, we used the Twitter REST API to collect p
     <h2 class="content-head is-center" style="color:black">Visualizing SDOH Risk in Disease Populations</h2>
       <p class="content-head is-center" style="color:black">(Use Map to Filter by Location)</p>
       <div class="pure-g justify-content-center">
-        <div id="vizDash" style="width:1500px; height:1000px; overflow:auto;">centered content</div>
-        <div id="controls" style="padding:20px;">
-        </div>
+        <div id="vizDash" style="width:1400px; height:1000px; ;"></div>
+        <div id="controls" style="padding:20px;"></div>
       </div>
   </div>
       <div class="solution" id="future" style="left:350px;position: relative; max-width:1000px; margin-bottom:200px">
@@ -331,7 +330,7 @@ With these user handles and tweet IDs, we used the Twitter REST API to collect p
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="mosh-team-slides owl-carousel">
+                    <div class="mosh-team-slides owl-carousel" style="autoplay:false;">
                         <!-- Single Team Slide -->
                         <div class="single-team-slide text-center">
                             <!-- Thumbnail -->
@@ -347,7 +346,7 @@ With these user handles and tweet IDs, we used the Twitter REST API to collect p
                         <div class="single-team-slide text-center">
                             <!-- Thumbnail -->
                             <div class="team-thumbnail">
-                              <img src="img/temp_johnny.png" alt="">
+                              <img src="img/johnny.png" alt="">
                             </div>
                             <!-- Meta Info -->
                             <div class="team-meta-info">
