@@ -25,12 +25,12 @@ def processData(json_file, rts=10, start_at=None):
     returns a last_n_tweets json object and a user_profile json object.
     """
     #Twitter Creds
-    twitter_app_auth = {
-        'consumer_key': 'rJAHDbRrrUAcFvhcASh0XqtWc',
-        'consumer_secret': 'YVq7eoKVPjwAmway1nneX390src0n6awodRtKzvuwpmxsdjlgz',
-        'access_token': '961813667867082752-56mEnDtS0mNgUsbJw71HqVRlvPl2Anl',
-        'access_token_secret': 'ZpKJxzmGd12QGvDl1dAnFf969PeUfnCgsvZ2I7dil0ILK'
-    }
+#     twitter_app_auth = {
+#         'consumer_key': '',
+#         'consumer_secret': '',
+#         'access_token': '',
+#         'access_token_secret': ''
+#     }
 
     # API setup
     auth = tweepy.OAuthHandler(twitter_app_auth['consumer_key'], twitter_app_auth['consumer_secret'])
